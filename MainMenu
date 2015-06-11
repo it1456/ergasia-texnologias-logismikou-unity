@@ -1,0 +1,62 @@
+using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+
+public class MainMenu : MonoBehaviour {
+
+	public Canvas shopMenu;
+	public Canvas quitMenu;
+	public Button startText;
+	public Button shopText;
+	public Button exitText;
+
+	//Initialization
+	void Start () 
+	
+	{
+		shopMenu = shopMenu.GetComponent<Canvas> ();
+		quitMenu = quitMenu.GetComponent<Canvas> ();
+		startText = startText.GetComponent<Button> ();
+		shopText = shopText.GetComponent<Button> ();
+		exitText = exitText.GetComponent<Button> ();
+		quitMenu.enabled = false;
+		shopMenu.enabled = false;
+	
+	}
+
+	public void ShopPress()
+	{
+		shopMenu.enabled = true;
+		quitMenu.enabled = false;
+	}
+     
+     public void ExitPress()
+
+	{
+		quitMenu.enabled = true;
+		shopMenu.enabled = false;
+		startText.enabled = false;
+		exitText.enabled = false;
+	}
+
+	public void NoPress()
+	{
+		quitMenu.enabled = false;
+		shopMenu.enabled = false;
+		startText.enabled = true;
+		exitText.enabled = true;
+	}
+
+	public void ExitGame()
+		
+	{
+		Application.Quit ();
+	}
+
+
+	public void StartLevel()
+	
+	{
+		Application.LoadLevel(1);
+	}
+}
